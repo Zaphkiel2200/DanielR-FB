@@ -91,7 +91,6 @@ export class AppContainer extends HTMLElement {
                 font-size: 1.1rem;
             }
             .user-info::before {
-                content: '👤';
                 font-size: 1.2rem;
             }
             .sign-out-btn {
@@ -112,7 +111,6 @@ export class AppContainer extends HTMLElement {
                 gap: 0.5rem;
             }
             .sign-out-btn::before {
-                content: '🚪';
                 font-size: 1.1rem;
             }
             .sign-out-btn:hover {

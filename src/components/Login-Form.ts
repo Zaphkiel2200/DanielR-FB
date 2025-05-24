@@ -320,11 +320,11 @@ export class FormularioLogin extends HTMLElement {
             }
         </style>
         <div class="auth-container">
-            <h2>${this.isLogin ? 'Sign In' : 'Sign Up'}</h2>
+            <h2>${this.isLogin ? 'START' : 'First of All'}</h2>
             <p class="welcome-text">
                 ${this.isLogin 
-                    ? 'Sign in'
-                    : 'Create an account'}
+                    ? 'WELCOME'
+                    : 'WELCOME'}
             </p>
             <form @submit=${this.handleSubmit.bind(this)}>
                 <div class="form-group">

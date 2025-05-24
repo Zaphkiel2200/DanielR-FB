@@ -1,6 +1,6 @@
 import { collection, doc, setDoc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { db } from '../Firebase/FirebaseConfig';
+import { db } from '../Firebase/firebase-config';
 
 export interface Task {
     title: string;
@@ -35,13 +35,13 @@ export class TaskService {
         };
 
         if (!taskDoc.exists()) {
-            // Si no crear uno nuevo
+            // Si no existe crearlo
             await setDoc(taskRef, {
                 userId,
                 tasklist: [newTask]
             });
         } else {
-            // Si existe agregar la tarea a la lista existente
+            // Si existe, agregar tarea 
             await updateDoc(taskRef, {
                 tasklist: arrayUnion(newTask)
             });

@@ -1,7 +1,7 @@
 import { AuthService } from '../services/auth-service';
 import { User } from 'firebase/auth';
-import { ListaTareas } from './Tasks';
-import { FormularioLogin } from './Login';
+import { ListaTareas } from './Task-List';
+import { FormularioLogin } from './Login-Form';
 
 export class AppContainer extends HTMLElement {
     private authService: AuthService;
@@ -48,7 +48,7 @@ export class AppContainer extends HTMLElement {
                 overflow-x: hidden;
             }
             :host::before {
-                content: '⚡';
+                content: '';
                 position: fixed;
                 top: 20px;
                 left: 20px;
@@ -57,7 +57,7 @@ export class AppContainer extends HTMLElement {
                 animation: float 3s ease-in-out infinite;
             }
             :host::after {
-                content: '🔥';
+                content: '';
                 position: fixed;
                 top: 20px;
                 right: 20px;
@@ -138,8 +138,6 @@ export class AppContainer extends HTMLElement {
             <login-form></login-form>
             `}
         `;
-
-        // Add event listener for sign out button
         const signOutBtn = this.shadowRoot.getElementById('signOutBtn');
         if (signOutBtn) {
             signOutBtn.addEventListener('click', () => this.handleSignOut());

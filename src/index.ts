@@ -1,23 +1,23 @@
-import { app as firebaseApp } from './Firebase/FirebaseConfig';
+import { app as firebaseApp } from './Firebase/firebase-config';
 import { AppContainer } from './components/App-Container';
-import { ListaTareas } from './components/Tasks';
-import { TareaItem } from './components/Item';
-import { FormularioLogin } from './components/Login';
+import { ListaTareas } from './components/Task-List';
+import { TareaItem } from './components/Task-Item';
+import { FormularioLogin } from './components/Login-Form';
 import { AuthService } from './services/auth-service';
 import { TareasContainer } from './components/Task-Container';
 
-// Define custom elements
+// Define
 customElements.define('app-root', AppContainer);
 customElements.define('todo-list', ListaTareas);
 customElements.define('todo-item', TareaItem);
 customElements.define('tareas-container', TareasContainer);
 customElements.define('login-form', FormularioLogin);
 
-// Initialize app
+// Iiciar
 const app = new AppContainer();
 document.body.appendChild(app);
 
-// Register custom elements
+// Registrar C E
 customElements.define('app-root', class extends HTMLElement {
     private authService: AuthService;
 
@@ -56,87 +56,55 @@ customElements.define('app-root', class extends HTMLElement {
                 :host {
                     display: block;
                     min-height: 100vh;
-                    background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E1 100%);
-                    font-family: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%);
+                    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                     position: relative;
                     overflow-x: hidden;
-                }
-                :host::before {
-                    content: '🌸';
-                    position: fixed;
-                    top: 20px;
-                    left: 20px;
-                    font-size: 24px;
-                    opacity: 0.3;
-                    animation: float 3s ease-in-out infinite;
-                }
-                :host::after {
-                    content: '✨';
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    font-size: 24px;
-                    opacity: 0.3;
-                    animation: float 3s ease-in-out infinite reverse;
-                }
-                @keyframes float {
-                    0%, 100% { transform: translateY(0); }
-                    50% { transform: translateY(-10px); }
+                    color: #e0e0e0;
                 }
                 .header {
-                    background: rgba(255, 182, 193, 0.9);
+                    background: rgba(40, 40, 40, 0.9);
                     padding: 1rem 2rem;
-                    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     position: sticky;
                     top: 0;
                     z-index: 100;
-                    border-bottom: 3px solid #FFC0CB;
+                    border-bottom: 3px solid #ff4500;
                     backdrop-filter: blur(5px);
                 }
                 .user-info {
                     display: flex;
                     align-items: center;
                     gap: 1rem;
-                    color: #FF69B4;
+                    color: #ff4500;
                     font-weight: 600;
                     font-size: 1.1rem;
                 }
-                .user-info::before {
-                    content: '👤';
-                    font-size: 1.2rem;
-                }
                 .sign-out-btn {
                     padding: 0.75rem 1.5rem;
-                    background: #FFC0CB;
-                    color: #FFFFFF;
-                    border: 2px solid #FFB6C1;
-                    border-radius: 25px;
+                    background: #ff4500;
+                    color: #ffffff;
+                    border: 2px solid #cc3700;
+                    border-radius: 4px;
                     cursor: pointer;
                     font-weight: 600;
                     font-size: 0.875rem;
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     transition: all 0.3s ease;
-                    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3);
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                }
-                .sign-out-btn::before {
-                    content: '🚪';
-                    font-size: 1.1rem;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                 }
                 .sign-out-btn:hover {
-                    background: #FFB6C1;
-                    transform: scale(1.04);
-                    box-shadow: 0 6px 12px rgba(255, 182, 193, 0.4);
+                    background: #cc3700;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
                 }
                 .sign-out-btn:active {
-                    transform: scale(0.98);
-                    box-shadow: 0 2px 4px rgba(255, 182, 193, 0.3);
+                    transform: translateY(0);
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
                 }
             </style>
             ${user ? `
@@ -152,7 +120,7 @@ customElements.define('app-root', class extends HTMLElement {
             `}
         `;
 
-        // Add event listener for sign out button
+        // Botón de cerrar sesión
         const signOutBtn = this.shadowRoot.getElementById('signOutBtn');
         if (signOutBtn) {
             signOutBtn.addEventListener('click', () => this.handleSignOut());

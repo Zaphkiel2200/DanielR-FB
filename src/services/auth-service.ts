@@ -19,12 +19,12 @@ export class AuthService {
 
     async signIn(email: string, password: string): Promise<User> {
         try {
-            // validar email
+            // Validate email format
             if (!this.isValidEmail(email)) {
                 throw new Error('Please enter a valid email address');
             }
 
-            // validar contra
+            // Validate password
             if (!password || password.length < 6) {
                 throw new Error('Password must be at least 6 characters long');
             }
@@ -39,17 +39,23 @@ export class AuthService {
     async signUp(email: string, password: string, username: string): Promise<User> {
         try {
             console.log("Starting sign up process...");
+            // Validar email
             if (!this.isValidEmail(email)) {
                 console.log("Invalid email format");
                 throw new Error('Please enter a valid email address');
             }
+
+            // Validar contra
             if (!this.isStrongPassword(password)) {
                 console.log("Password too weak");
                 throw new Error('Password must be at least 6 characters long and contain a mix of letters, numbers, and special characters');
             }
+
             console.log("Attempting to create user with Firebase...");
             const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
             console.log("User created successfully:", userCredential.user);
+
+            // CreaR user 
             await this.userService.createUser(email, username);
 
             return userCredential.user;
@@ -82,7 +88,7 @@ export class AuthService {
     }
 
     private isStrongPassword(password: string): boolean {
-        // Min 6 letras y números
+        // MÍNIMO 6, LETRAS Y NÚMEROS
         const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{6,}$/;
         if (!passwordRegex.test(password)) {
             console.log("Password validation failed. Requirements:");

@@ -28,8 +28,8 @@ export class TareaItem extends HTMLElement {
         if (!this.shadowRoot) return;
 
         this.shadowRoot.innerHTML = `
- <style>
-            :host {
+            <style>
+                :host {
                 display: block;
                 height: 100%;
             }
@@ -120,22 +120,18 @@ export class TareaItem extends HTMLElement {
             </button>
         </div>
         `;
-
-        // Add event listeners
         const checkbox = this.shadowRoot.querySelector('.checkbox');
         const deleteButton = this.shadowRoot.querySelector('.delete-btn');
 
         checkbox?.addEventListener('change', this.handleToggle.bind(this));
         deleteButton?.addEventListener('click', this.handleDelete.bind(this));
     }
-
     private handleToggle(event: Event) {
         const checkbox = event.target as HTMLInputElement;
         this.dispatchEvent(new CustomEvent('toggle', {
             detail: { index: this.index, completed: checkbox.checked }
         }));
     }
-
     private handleDelete() {
         this.dispatchEvent(new CustomEvent('delete', {
             detail: { index: this.index }

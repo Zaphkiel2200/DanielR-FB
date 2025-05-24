@@ -1,6 +1,6 @@
 import { collection, doc, setDoc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { db } from '../Firebase/FirebaseConfig';
+import { db } from '../Firebase/firebase-config';
 
 export interface User {
     email: string;

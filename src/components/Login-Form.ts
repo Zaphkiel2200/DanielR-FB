@@ -30,7 +30,7 @@ export class FormularioLogin extends HTMLElement {
         const password = passwordInput.value;
         const username = usernameInput?.value.trim();
 
-        // Rate limiting
+        // Límite
         if (this.failedAttempts >= 3 && now - this.lastAttemptTime < 30000) {
             const timeLeft = Math.ceil((30000 - (now - this.lastAttemptTime)) / 1000);
             if (errorElement) {
@@ -320,15 +320,15 @@ export class FormularioLogin extends HTMLElement {
             }
         </style>
         <div class="auth-container">
-            <h2>${this.isLogin ? '🔥 Sign In 🔥' : '🔥 Sign Up 🔥'}</h2>
+            <h2>${this.isLogin ? 'Sign In' : 'Sign Up'}</h2>
             <p class="welcome-text">
                 ${this.isLogin 
-                    ? '⚡ Sign in to manage your tasks and stay organized ⚡'
-                    : '⚡ Create an account to start managing your tasks ⚡'}
+                    ? 'Sign in'
+                    : 'Create an account'}
             </p>
             <form @submit=${this.handleSubmit.bind(this)}>
                 <div class="form-group">
-                    <label for="email">📧 Email Address</label>
+                    <label for="email">Email Address</label>
                     <input 
                         type="email" 
                         id="email" 
@@ -339,7 +339,7 @@ export class FormularioLogin extends HTMLElement {
                 </div>
                 ${!this.isLogin ? `
                     <div class="form-group">
-                        <label for="username">👤 Username</label>
+                        <label for="username">Username</label>
                         <input 
                             type="text" 
                             id="username" 
@@ -350,7 +350,7 @@ export class FormularioLogin extends HTMLElement {
                     </div>
                 ` : ''}
                 <div class="form-group">
-                    <label for="password">🔑 Password</label>
+                    <label for="password">Password</label>
                     <input 
                         type="password" 
                         id="password" 
@@ -359,17 +359,15 @@ export class FormularioLogin extends HTMLElement {
                         required
                         autocomplete="current-password">
                 </div>
-                <button type="submit">${this.isLogin ? '🔥 Sign In 🔥' : '🔥 Sign Up 🔥'}</button>
+                <button type="submit">${this.isLogin ? 'Sign In' : 'Sign Up'}</button>
                 <div class="error-message"></div>
             </form>
             <div class="divider">or</div>
             <button class="toggle-btn" @click=${this.toggleMode.bind(this)}>
-                ${this.isLogin ? '⚡ Need an account? Sign Up ⚡' : '⚡ Already have an account? Sign In ⚡'}
+                ${this.isLogin ? 'Need an account? Sign Up' : 'Already have an account? Sign In'}
             </button>
         </div>
         `;
-
-        // Add event listeners
         const form = this.shadowRoot.querySelector('form');
         const toggleBtn = this.shadowRoot.querySelector('.toggle-btn');
 

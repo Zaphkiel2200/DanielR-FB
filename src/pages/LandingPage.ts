@@ -12,7 +12,6 @@ class LandingPage extends HTMLElement {
                     font-family: Arial, sans-serif;
                 }
             </style>
-            <h1>Landing page</h1>
         `;
 
     }

@@ -42,7 +42,7 @@ export class AppContainer extends HTMLElement {
             :host {
                 display: block;
                 min-height: 100vh;
-                background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%);
+                background: linear-gradient(135deg,rgb(128, 130, 130) 0%,rgb(0, 0, 0) 100%);
                 font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
                 position: relative;
                 overflow-x: hidden;
@@ -70,7 +70,7 @@ export class AppContainer extends HTMLElement {
                 50% { transform: translateY(-10px); }
             }
             .header {
-                background: rgba(40, 40, 40, 0.9);
+                background: linear-gradient(135deg,rgb(255, 56, 56) 0%,rgb(81, 83, 83) 100%);
                 padding: 1rem 2rem;
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
                 display: flex;

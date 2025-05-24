@@ -123,7 +123,6 @@ export class TareaItem extends HTMLElement {
         `;
         const checkbox = this.shadowRoot.querySelector('.checkbox');
         const deleteButton = this.shadowRoot.querySelector('.delete-btn');
-
         checkbox?.addEventListener('change', this.handleToggle.bind(this));
         deleteButton?.addEventListener('click', this.handleDelete.bind(this));
     }

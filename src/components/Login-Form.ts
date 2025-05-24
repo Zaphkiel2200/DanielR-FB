@@ -11,11 +11,9 @@ export class FormularioLogin extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.authService = new AuthService();
     }
-
     connectedCallback() {
         this.render();
     }
-
     private async handleSubmit(event: Event) {
         event.preventDefault();
         const form = event.target as HTMLFormElement;
@@ -62,7 +60,6 @@ export class FormularioLogin extends HTMLElement {
         } catch (error: any) {
             this.lastAttemptTime = now;
             this.failedAttempts++;
-
             if (errorElement) {
                 let errorMessage = error.message;
                 
@@ -105,12 +102,10 @@ export class FormularioLogin extends HTMLElement {
             submitButton.innerHTML = this.isLogin ? 'Sign In' : 'Sign Up';
         }
     }
-
     private toggleMode() {
         this.isLogin = !this.isLogin;
         this.render();
     }
-
     render() {
         if (!this.shadowRoot) return;
 
@@ -127,7 +122,7 @@ export class FormularioLogin extends HTMLElement {
                 justify-content: center;
             }
             .auth-container {
-                background: #2b2b2b;
+                background:rgb(0, 0, 0);
                 padding: 2.5rem;
                 border-radius: 20px;
                 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -136,7 +131,7 @@ export class FormularioLogin extends HTMLElement {
                 border: 3px solid #ff4500;
             }
             .auth-container:hover {
-                background: #333333;
+                background:rgb(97, 67, 67);
                 transform: translateY(-2px);
             }
             h2 {

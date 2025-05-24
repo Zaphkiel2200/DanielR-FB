@@ -71,7 +71,7 @@ class Header extends HTMLElement {
                 }
             </style>
             <div id="header">
-                <h1 id="landing">Tareas</h1>
+                <h1 id="landing">Home</h1>
                 <div class="buttons">
                     <button id="login" navigate-to="/login">Iniciar sesión</button>
                     <button id="register" navigate-to="/register">Registrarse</button>

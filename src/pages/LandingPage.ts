@@ -156,13 +156,11 @@ class LandingPage extends HTMLElement {
                     <p>Organiza tu trabajo, tus proyectos y tu vida. Finalmente deja atrás el desorden con nuestro gestor de tareas intuitivo.</p>
                     
                 </section>
-
                 <section class="features">
                     <div class="feature-card">
                         <h3><span class="feature-icon">📝</span>Creación fácil</h3>
                         <p>Añade nuevas tareas en segundos con nuestro sistema intuitivo. Prioriza y organiza como prefieras.</p>
                     </div>
-                    
                     <div class="feature-card">
                         <h3><span class="feature-icon">✅</span>Seguimiento</h3>
                         <p>Marca tareas como completadas y lleva un registro de tu productividad día a día.</p>

@@ -307,19 +307,19 @@ export class FormularioLogin extends HTMLElement {
             }
             @keyframes shake {
                 0%, 100% { transform: translateX(0); }
-                25% { transform: translateX(-5px); }
-                75% { transform: translateX(5px); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
             }
             .shake {
                 animation: shake 0.5s ease;
             }
         </style>
         <div class="auth-container">
-            <h2>${this.isLogin ? 'START' : 'First of All'}</h2>
+            <h2>${this.isLogin ? 'CREATE YOUR TASKS' : 'First of All'}</h2>
             <p class="welcome-text">
                 ${this.isLogin 
                     ? 'WELCOME'
-                    : 'WELCOME'}
+                    : 'REGISTER'}
             </p>
             <form @submit=${this.handleSubmit.bind(this)}>
                 <div class="form-group">
@@ -350,7 +350,7 @@ export class FormularioLogin extends HTMLElement {
                         type="password" 
                         id="password" 
                         name="password" 
-                        placeholder="Enter your password"
+                        placeholder="Enter a password"
                         required
                         autocomplete="current-password">
                 </div>

@@ -126,13 +126,13 @@ export class TareaItem extends HTMLElement {
         checkbox?.addEventListener('change', this.handleToggle.bind(this));
         deleteButton?.addEventListener('click', this.handleDelete.bind(this));
     }
-    private handleToggle(event: Event) {
+        private handleToggle(event: Event) {
         const checkbox = event.target as HTMLInputElement;
         this.dispatchEvent(new CustomEvent('toggle', {
             detail: { index: this.index, completed: checkbox.checked }
         }));
     }
-    private handleDelete() {
+        private handleDelete() {
         this.dispatchEvent(new CustomEvent('delete', {
             detail: { index: this.index }
         }));

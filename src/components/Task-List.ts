@@ -121,7 +121,7 @@ export class ListaTareas extends HTMLElement {
             }
         </style>
         <div class="container">
-            <h1>My Tasks</h1>
+            <h1>The Tasks</h1>
             <form class="todo-form">
                 <input type="text" placeholder="⚡ Now what? ⚡" required>
                 <button type="submit">

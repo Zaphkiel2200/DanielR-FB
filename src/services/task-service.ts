@@ -81,10 +81,10 @@ export class TaskService {
         });
     }
 
-    async deleteTask(taskIndex: number): Promise<void> {
-        const userId = this.getCurrentUserId();
-        const taskRef = doc(this.collection, userId);
-        const taskDoc = await getDoc(taskRef);
+        async deleteTask(taskIndex: number): Promise<void> {
+            const userId = this.getCurrentUserId();
+            const taskRef = doc(this.collection, userId);
+            const taskDoc = await getDoc(taskRef);
 
         if (!taskDoc.exists()) {
             throw new Error('Task list not found');

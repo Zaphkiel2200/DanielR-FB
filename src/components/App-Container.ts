@@ -67,7 +67,7 @@ export class AppContainer extends HTMLElement {
             }
             @keyframes float {
                 0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-10px); }
+                50% { transform: translateY(-20px); }
             }
             .header {
                 background: linear-gradient(135deg,rgb(255, 56, 56) 0%,rgb(81, 83, 83) 100%);
